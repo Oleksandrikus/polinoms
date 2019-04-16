@@ -28,11 +28,11 @@ namespace Game3
         string xString = "";
         string yString = "";
 
-        double currentÑoordinatsX;
-        double currentÑoordinatsY;
+        double currentÃ‘oordinatsX;
+        double currentÃ‘oordinatsY;
 
-        double previousÑoordinatsX;
-        double previousÑoordinatsY;
+        double previousÃ‘oordinatsX;
+        double previousÃ‘oordinatsY;
 
         // scale in pixels and origin
         double y0 = 426;
@@ -123,7 +123,7 @@ namespace Game3
             //System.Diagnostics.Debug.WriteLine(position.X.ToString() + "," + position.Y.ToString());
             
             //
-            if (position.X != previousÑoordinatsX && position.Y != previousÑoordinatsY)
+            if (position.X != previousÃ‘oordinatsX && position.Y != previousÃ‘oordinatsY)
             {
                 int index = ((int)position.Y * inGraph.Width) + (int)position.X;
 
@@ -132,8 +132,8 @@ namespace Game3
                 else
                     Collide();
             }
-            previousÑoordinatsX = position.X;
-            previousÑoordinatsY = position.Y;
+            previousÃ‘oordinatsX = position.X;
+            previousÃ‘oordinatsY = position.Y;
 
             base.Update(gameTime);
         }
@@ -190,25 +190,25 @@ namespace Game3
 
         protected void SetPoints()
         {
-            currentÑoordinatsX = (position.X - x0) / x1;
-            currentÑoordinatsY = (y0 - position.Y) / y1;
-            currentCoordinats = String.Format("{0:f}", currentÑoordinatsX) + ", " + String.Format("{0:f}", currentÑoordinatsY);
+            currentÃ‘oordinatsX = (position.X - x0) / x1;
+            currentÃ‘oordinatsY = (y0 - position.Y) / y1;
+            currentCoordinats = String.Format("{0:f}", currentÃ‘oordinatsX) + ", " + String.Format("{0:f}", currentÃ‘oordinatsY);
         }
 
         protected void AddPoints()
         {      
             try 
             {
-                if (currentÑoordinatsY != soursData[currentÑoordinatsX])
+                if (currentÃ‘oordinatsY != soursData[currentÃ‘oordinatsX])
                 { 
                     //
                 }
             }
             catch
             {
-                soursData.Add(currentÑoordinatsX, currentÑoordinatsY);
-                xString = xString + String.Format("{0:f}", currentÑoordinatsX) + "             ";
-                yString = yString + String.Format("{0:f}", currentÑoordinatsY) + "             ";
+                soursData.Add(currentÃ‘oordinatsX, currentÃ‘oordinatsY);
+                xString = xString + String.Format("{0:f}", currentÃ‘oordinatsX) + "             ";
+                yString = yString + String.Format("{0:f}", currentÃ‘oordinatsY) + "             ";
             }
         }
 
@@ -241,7 +241,7 @@ namespace Game3
                         int index = (y * inGraph.Width) + x;
 
                         if (index > 0 && index <= inGraphData.Length)
-                        {    //âñòàíîâëåííÿ êîëüîğó ï³ä ï³êñåëåì
+                        {    
                             inGraphData[index] = color;
                             inGraph.SetData(inGraphData);
                         }
