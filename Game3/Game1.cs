@@ -12,7 +12,6 @@ namespace Game3
     /// </summary>
     public class Game1 : Game
     {
-        //testt
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -25,7 +24,7 @@ namespace Game3
         Color[] inGraphTablData;
         
         SpriteFont font;
-        string current—oordinats = "";
+        string currentCoordinats = "";
         string xString = "";
         string yString = "";
 
@@ -156,8 +155,8 @@ namespace Game3
             foreach (KeyValuePair<double, double> keyValue in soursData)
                 spriteBatch.Draw(texture, new Vector2((int)(keyValue.Key * x1 + x0), (int)(y0 - keyValue.Value * y1)), rotation: -45f, origin: new Vector2(5, 5));
 
-            if (String.Compare(current—oordinats, "") != 0)
-                    spriteBatch.DrawString(font, current—oordinats, new Vector2(200, 605), Color.Black);
+            if (String.Compare(currentCoordinats, "") != 0)
+                    spriteBatch.DrawString(font, currentCoordinats, new Vector2(200, 605), Color.Black);
 
                 spriteBatch.DrawString(font, xString, new Vector2(110, inGraph.Height+70), Color.Black);
                 spriteBatch.DrawString(font, yString, new Vector2(110, inGraph.Height + 70+40), Color.Black);
@@ -193,7 +192,7 @@ namespace Game3
         {
             current—oordinatsX = (position.X - x0) / x1;
             current—oordinatsY = (y0 - position.Y) / y1;
-            current—oordinats = String.Format("{0:f}", current—oordinatsX) + ", " + String.Format("{0:f}", current—oordinatsY);
+            currentCoordinats = String.Format("{0:f}", current—oordinatsX) + ", " + String.Format("{0:f}", current—oordinatsY);
         }
 
         protected void AddPoints()
@@ -248,7 +247,7 @@ namespace Game3
                         }
                         else
                         {
-                            current—oordinats = "Error! The value of the function is out of range.";
+                            currentCoordinats = "Error! The value of the function is out of range.";
                             break;
                         }
                     }
