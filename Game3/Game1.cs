@@ -28,11 +28,11 @@ namespace Game3
         string xString = "";
         string yString = "";
 
-        double currentÑoordinatsX;
-        double currentÑoordinatsY;
+        double currentCoordinatsX;
+        double currentCoordinatsY;
 
-        double previousÑoordinatsX;
-        double previousÑoordinatsY;
+        double previousCoordinatsX;
+        double previousCoordinatsY;
 
         // scale in pixels and origin
         double y0 = 426;
@@ -46,12 +46,6 @@ namespace Game3
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            
-            //graphics.IsFullScreen = true;
-            //graphics.PreferredBackBufferWidth = 800;
-            //graphics.PreferredBackBufferHeight = 480;
-            //graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
-            
         }
 
         /// <summary>
@@ -123,7 +117,7 @@ namespace Game3
             //System.Diagnostics.Debug.WriteLine(position.X.ToString() + "," + position.Y.ToString());
             
             //
-            if (position.X != previousÑoordinatsX && position.Y != previousÑoordinatsY)
+            if (position.X != previousCoordinatsX && position.Y != previousCoordinatsY)
             {
                 int index = ((int)position.Y * inGraph.Width) + (int)position.X;
 
@@ -132,8 +126,8 @@ namespace Game3
                 else
                     Collide();
             }
-            previousÑoordinatsX = position.X;
-            previousÑoordinatsY = position.Y;
+            previousCoordinatsX = position.X;
+            previousCoordinatsY = position.Y;
 
             base.Update(gameTime);
         }
@@ -190,25 +184,25 @@ namespace Game3
 
         protected void SetPoints()
         {
-            currentÑoordinatsX = (position.X - x0) / x1;
-            currentÑoordinatsY = (y0 - position.Y) / y1;
-            currentCoordinats = String.Format("{0:f}", currentÑoordinatsX) + ", " + String.Format("{0:f}", currentÑoordinatsY);
+            currentCoordinatsX = (position.X - x0) / x1;
+            currentCoordinatsY = (y0 - position.Y) / y1;
+            currentCoordinats = String.Format("{0:f}", currentCoordinatsX) + ", " + String.Format("{0:f}", currentCoordinatsY);
         }
 
         protected void AddPoints()
         {      
             try 
             {
-                if (currentÑoordinatsY != soursData[currentÑoordinatsX])
+                if (currentCoordinatsY != soursData[currentCoordinatsX])
                 { 
                     //
                 }
             }
             catch
             {
-                soursData.Add(currentÑoordinatsX, currentÑoordinatsY);
-                xString = xString + String.Format("{0:f}", currentÑoordinatsX) + "             ";
-                yString = yString + String.Format("{0:f}", currentÑoordinatsY) + "             ";
+                soursData.Add(currentCoordinatsX, currentCoordinatsY);
+                xString = xString + String.Format("{0:f}", currentCoordinatsX) + "             ";
+                yString = yString + String.Format("{0:f}", currentCoordinatsY) + "             ";
             }
         }
 
